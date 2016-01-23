@@ -10,7 +10,8 @@ gulp.task('develop', function () {
     script: 'server.js',
     ext: 'js',
     env: {
-      'NODE_ENV': config.node_env
+      'NODE_ENV': config.node_env,
+      'MONGOLAB_URI': config.mongolab_uri
     }
   }).on('restart', function () {
     console.log('Restarted');

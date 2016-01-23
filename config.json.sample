@@ -1,3 +1,4 @@
 {
-  "node_env": ""
+  "node_env": "",
+  "mongolab_uri": ""
 }
