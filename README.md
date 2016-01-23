@@ -29,3 +29,16 @@ Run
 ```sh
 $ make test
 ```
+
+### Run with Docker Compose
+
+Create `.env` file with environment variables
+```
+NODE_ENV=development
+MONGOLAB_URI=mongo
+```
+
+Run
+```sh
+$ docker-compose up
+```
