@@ -6,6 +6,6 @@ process.env.MONGOLAB_URI='mongodb://localhost/auth0-dependency-checker-test';
 /*eslint-enable */
 
 var request = require('supertest');
-var server = require('../../server.js');
+var api = require('../../lib/config/api.js');
 
-exports.agent = request.agent(server);
+exports.agent = request(api);
