@@ -11,7 +11,7 @@ gulp.task('develop', function () {
     ext: 'js',
     env: {
       'NODE_ENV': config.node_env,
-      'MONGOLAB_URI': config.mongolab_uri
+      'DATA_STORE': config.data_store
     }
   }).on('restart', function () {
     console.log('Restarted');

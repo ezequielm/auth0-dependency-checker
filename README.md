@@ -35,7 +35,7 @@ $ make test
 Create `.env` file with environment variables
 ```
 NODE_ENV=development
-MONGOLAB_URI=mongo
+DATA_STORE=/data/projects.json
 ```
 
 Run

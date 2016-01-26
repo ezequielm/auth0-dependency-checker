@@ -2,8 +2,4 @@ web:
   build: .
   ports:
    - "9000:9000"
-  links:
-   - mongo
   env_file: .env
-mongo:
-  image: mongo

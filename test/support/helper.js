@@ -1,8 +1,10 @@
 'use strict';
 
+var path = require('path');
+
 /*eslint-disable */
 process.env.NODE_ENV='test';
-process.env.MONGOLAB_URI='mongodb://localhost/auth0-dependency-checker-test';
+process.env.DATA_STORE=path.join(__dirname, '../projects.json');
 /*eslint-enable */
 
 var request = require('supertest');
