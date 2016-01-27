@@ -1,44 +1,21 @@
 # Auth0 Dependency Checker
 
 ## Requirements
-- Node.js v4.2.6
-- Gulp v3.9.0
+- [webtask.io](https://webtask.io)
 
-### Setup
+## Install
 
-Rename `config.json.sample` to `config.json` and update the attribute values
-```bash
-mv config.json.sample config.json
-```
-
-### Run api
-
-Install dependencies
-```sh
-$ sudo npm install
-```
+### Create project webtask
 
 Run
-```sh
-$ gulp
-```
+`
+echo https://webtask.it.auth0.com/api/run/***%your_container%***?key=$(curl -s https://webtask.it.auth0.com/api/tokens/issue -H "Authorization: Bearer ***%your_token%***" -H "Content-Type: application/json" --data-binary '{"url":"https://raw.githubusercontent.com/ezequielm/auth0-dependency-checker/master/lib/webtasks/create-project.js", "ectx": {"AWS_S3_ACCESS_KEY_ID": "***"{aws_s3_access_key_id}***"", "AWS_S3_SECRET_KEY": "***"%aws_s3_secret_key%***"", "AWS_S3_BUCKET": "auth0-dependency-checker", "AWS_S3_KEY": "projects.json"}}')
+`
 
-### Run tests
+Next, install the generated URL as a GitHub repository web hook for your organization.
 
-Run
-```sh
-$ make test
-```
+### Detect project dependencies webtask
+*TBC*
 
-### Run with Docker Compose
-
-Create `.env` file with environment variables
-```
-NODE_ENV=development
-DATA_STORE=/data/projects.json
-```
-
-Run
-```sh
-$ docker-compose up
-```
+### Detect dependency update webtask
+*TBC*
