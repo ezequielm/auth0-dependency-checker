@@ -1,18 +1,46 @@
+var async = require('async');
+var aws = require('aws-sdk');
+
 return function (context, req, res) {
   var body = '';
 
-  req.on('data', function (chunk) {
-    body += chunk;
-  });
-  req.on('end', function () {
+  async.series([
+    function(cb) {
+      req.on('data', function (chunk) {
+        body += chunk;
+      });
+      req.on('end', function () {
+        try {
+          body = JSON.parse(body);
+        }
+        catch (e) {
+          return cb(e);
+        }
+        cb();
+      });
+    },
+    function(cb) {
+      var s3 = new AWS.S3({
+        accessKeyId: context.data.AWS_S3_ACCESS_KEY_ID,
+        secretAccessKey: context.data.AWS_S3_SECRET_KEY
+      });
+
+      s3.putObject({
+        Bucket: context.data.AWS_S3_BUCKET,
+        Key: context.data.AWS_S3_KEY,
+        Body: JSON.stringify(body)
+      }, cb);
+    }
+  ], function(err) {
     try {
-      body = JSON.parse(body);
+      if (error) {
+        console.log('ERROR', error);
+        res.writeHead(500);
+        res.end(error.toString());
+      }
     }
     catch (e) {
-      res.writeHead(500, {"Content-Type": "application/json"});
-      return res.end(e);
+        // ignore
     }
-    res.writeHead(200, {"Content-Type": "application/json"});
-    res.end(body);
   });
 }
