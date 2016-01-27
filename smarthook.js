@@ -1,5 +1,5 @@
 var async = require('async');
-var aws = require('aws-sdk');
+var AWS = require('aws-sdk');
 
 return function (context, req, res) {
   var body = '';
