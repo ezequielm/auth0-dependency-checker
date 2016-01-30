@@ -8,22 +8,5 @@
     "test": "make test"
   },
   "author": "Ezequiel Morito",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.14.2",
-    "compression": "^1.6.1",
-    "cookie-parser": "^1.4.1",
-    "express": "^4.13.4",
-    "method-override": "^2.3.5",
-    "morgan": "^1.6.1"
-  },
-  "devDependencies": {
-    "chai": "^3.4.1",
-    "gulp": "^3.9.0",
-    "gulp-nodemon": "^2.0.6",
-    "mocha": "^2.3.4",
-    "sinon": "^1.17.2",
-    "supertest": "^1.1.0",
-    "webtask-tools": "^1.2.0"
-  }
+  "license": "ISC"
 }
